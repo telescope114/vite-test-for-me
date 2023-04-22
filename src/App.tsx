@@ -1,18 +1,22 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Button } from 'antd'
 import './App.css'
+import { useSelector } from 'react-redux'
+import store from './store'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const onClickCount = () => {
-    setCount((count) => count + 1)
+  const countStore = useSelector((state: any) => {
+    return state
+  })
+  const setCount = (type: string): void => {
+    store.dispatch({ type })
   }
   return (
     <div className="App">
       <div className="card">
-        <Button onClick={onClickCount}>
-          count is {count}
-        </Button>
+          count is {countStore.count}
+        <Button type="primary" onClick={() => { setCount('increment') }}> + </Button>
+        <Button type="primary" onClick={() => { setCount('decrement') }}> - </Button>
       </div>
     </div>
   )
