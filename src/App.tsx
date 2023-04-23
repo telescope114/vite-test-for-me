@@ -1,23 +1,26 @@
-// import { useState } from 'react'
+import { FC } from 'react'
 import { Button } from 'antd'
 import './App.css'
 import { useSelector } from 'react-redux'
-import store from './store'
+import { dispatch } from './store'
+import { increment, decrement } from './store/actions/count'
+import NotUpdateTest from './pages/NotUpdateTest'
 
-function App() {
-  const countStore = useSelector((state: any) => {
+const App: FC = () => {
+  const store = useSelector((state: any) => {
     return state
   })
   const setCount = (type: string): void => {
-    store.dispatch({ type })
+    dispatch({ type })
   }
   return (
     <div className="App">
       <div className="card">
-          count is {countStore.count}
+          count is {store.count}
         <Button type="primary" onClick={() => { setCount('increment') }}> + </Button>
         <Button type="primary" onClick={() => { setCount('decrement') }}> - </Button>
       </div>
+      <NotUpdateTest />
     </div>
   )
 }
