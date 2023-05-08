@@ -1,9 +1,9 @@
-import { FC, memo } from 'react'
+import { type FC, memo } from 'react'
 import { useRecoilState } from 'recoil'
-import { countSelector, countStore } from '../recoil/CountRecoil'
+import { countSelector, countStore } from '../../recoil/CountRecoil'
 import { Button } from 'antd'
 
-const OtherCount: FC = memo(() => {
+const PageOne: FC<{}> = memo<{}>(({}) => {
   const [selector, setSelector] = useRecoilState<countStore>(countSelector)
   const increment = (): void => {
     setSelector({ count: selector.count + 1 })
@@ -18,4 +18,4 @@ const OtherCount: FC = memo(() => {
   </>)
 })
 
-export default OtherCount
+export default PageOne

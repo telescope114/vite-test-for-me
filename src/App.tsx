@@ -5,7 +5,7 @@ import { dispatch } from './store'
 import { increment, decrement } from './store/actions/count'
 import NotUpdateTest from './pages/NotUpdateTest'
 import FormTest from './pages/FormTest'
-import OtherCount from './pages/OtherCount'
+// import OtherCount from './pages/OtherCount'
 
 const App: FC = () => {
   const store = useSelector((state: any) => {
@@ -29,7 +29,7 @@ const App: FC = () => {
       <Button type="primary" onClick={() => { setCount('decrement') }}> - </Button>
       <NotUpdateTest />
       <FormTest />
-      <OtherCount />
+      {/*<OtherCount />*/}
     </div>
   )
 }

@@ -8,6 +8,7 @@ export const countState = atom<countStore>({
     count: 0
   }
 })
+debugger
 export const countSelector = selector({
   key: 'countSelector',
   get: ({ get }) => {
