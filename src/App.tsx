@@ -1,11 +1,12 @@
 import { FC } from 'react'
-import { Button } from 'antd'
+import { Button, Divider } from 'antd'
 import { useSelector } from 'react-redux'
 import { dispatch } from './store'
 import { increment, decrement } from './store/actions/count'
 import NotUpdateTest from './pages/NotUpdateTest'
 import FormTest from './pages/FormTest'
 import TestTwo, { type testTwoProps } from './pages/TestTwo'
+import Parent from './pages/ttttt/Parents'
 
 const App: FC = () => {
   const store = useSelector((state: any) => {
@@ -27,11 +28,16 @@ const App: FC = () => {
   }
   return (
     <div className="App">
+      <Parent />
+      <Divider />
       <div className="card">
           count is {store.count}
       </div>
-      <Button type="primary" onClick={() => { setCount('increment') }}> + </Button>
-      <Button type="primary" onClick={() => { setCount('decrement') }}> - </Button>
+      <div>
+        <Button type="primary" onClick={() => { setCount('increment') }}> + </Button>
+        <Button type="primary" onClick={() => { setCount('decrement') }}> - </Button>
+      </div>
+      <Divider />
       <NotUpdateTest />
       <FormTest />
       <TestTwo {...testTwoProps} />
