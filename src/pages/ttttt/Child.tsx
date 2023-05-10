@@ -6,7 +6,6 @@ export type props = {
 }
 
 const Child: FC<props> = memo<props>(({ onclick }) => {
-  console.log('This is Child component.')
   return <Button onClick={onclick}>Click me</Button>
 })
 
