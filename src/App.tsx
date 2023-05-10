@@ -5,7 +5,7 @@ import { dispatch } from './store'
 import { increment, decrement } from './store/actions/count'
 import NotUpdateTest from './pages/NotUpdateTest'
 import FormTest from './pages/FormTest'
-// import OtherCount from './pages/OtherCount'
+import TestTwo, { type testTwoProps } from './pages/TestTwo'
 
 const App: FC = () => {
   const store = useSelector((state: any) => {
@@ -20,6 +20,11 @@ const App: FC = () => {
       default: break
     }
   }
+  const testTwoProps: testTwoProps = {
+    h1: 'abcd123',
+    h2: 'dcba321',
+    h3: 12
+  }
   return (
     <div className="App">
       <div className="card">
@@ -29,6 +34,7 @@ const App: FC = () => {
       <Button type="primary" onClick={() => { setCount('decrement') }}> - </Button>
       <NotUpdateTest />
       <FormTest />
+      <TestTwo {...testTwoProps} />
       {/*<OtherCount />*/}
     </div>
   )
