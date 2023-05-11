@@ -1,23 +1,9 @@
 import React, {type FC, memo, useState} from 'react'
-import { Menu, type MenuProps, Layout } from 'antd'
-import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
+import { Menu, Layout } from 'antd'
+import { DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons'
+import { type MenuItem ,getItem } from '../hooks/myLayoutLeftSiderHooks'
 
 const MyLayoutLeftSider: FC = memo(() => {
-  type MenuItem = Required<MenuProps>['items'][number]
-
-  const getItem = (
-    label: React.ReactNode,
-    key: React.Key,
-    icon?: React.ReactNode,
-    children?: MenuItem[],
-  ): MenuItem => {
-    return {
-      key,
-      icon,
-      children,
-      label,
-    } as MenuItem
-  }
   const [collapsed, setCollapsed] = useState(false)
   const items: MenuItem[] = [
     getItem('Option 1', '1', <PieChartOutlined />),
