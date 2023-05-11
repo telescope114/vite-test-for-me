@@ -5,12 +5,12 @@ import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutli
 const MyLayoutLeftSider: FC = memo(() => {
   type MenuItem = Required<MenuProps>['items'][number]
 
-  function getItem(
+  const getItem = (
     label: React.ReactNode,
     key: React.Key,
     icon?: React.ReactNode,
     children?: MenuItem[],
-  ): MenuItem {
+  ): MenuItem => {
     return {
       key,
       icon,
