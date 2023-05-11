@@ -1,11 +1,15 @@
-import React, { type FC, memo } from 'react'
+import React, { type FC, type ReactNode, memo } from 'react'
 import { Layout, theme } from 'antd'
 import MyLayoutLeftSider from '../molecules/MyLayoutLeftSider'
 import MyLayoutHeader from '../molecules/MyLayoutHeader'
 import MyLayoutContent from "../molecules/MyLayoutContent";
-import MyLayoutFooter from "../molecules/MyLayoutFooter";
+// import MyLayoutFooter from "../molecules/MyLayoutFooter";
 
-const MyLayout: FC = memo(() => {
+export type myLayoutProps = {
+  children: ReactNode
+}
+
+const MyLayout: FC<myLayoutProps> = memo<myLayoutProps>(({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken()
@@ -14,8 +18,8 @@ const MyLayout: FC = memo(() => {
       <MyLayoutLeftSider />
       <Layout className="site-layout">
         <MyLayoutHeader color={colorBgContainer} />
-        <MyLayoutContent color={colorBgContainer} />
-        <MyLayoutFooter />
+        <MyLayoutContent color={colorBgContainer}>{ children }</MyLayoutContent>
+        {/*<MyLayoutFooter />*/}
       </Layout>
     </Layout>
   )
