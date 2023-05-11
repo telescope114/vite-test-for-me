@@ -31,6 +31,11 @@ export type menuDataItem = {
   children?: menuDataItem[]
 }
 
+/**
+ * 根据后端配置的mock数据生成菜单配置
+ * @param MenuDataItem: {menuDataItem[]}
+ * @return {menuItem[]}
+ */
 export const getMenuData = (MenuDataItem: menuDataItem[]): menuItem[] => {
   const out: menuItem[] = []
   for (const item of MenuDataItem) {

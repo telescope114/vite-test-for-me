@@ -4,7 +4,7 @@ import { DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutl
 import { type menuItem, getMenuData } from '../hooks/myLayoutLeftSiderHooks'
 
 const MyLayoutLeftSider: FC = memo(() => {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState<boolean>(false)
   const menuData: menuItem[] = getMenuData([
     { label: 'Option 1', key: '1', icon: (<PieChartOutlined />) },
     { label: 'Option 2', key: '2', icon: <DesktopOutlined/>},

@@ -1,12 +1,12 @@
 import React, { type FC, type ReactNode, memo } from 'react'
 import { Breadcrumb, Layout } from 'antd'
 
-export type myLayoutContentProps = {
+export type myLayoutContent = {
   color: string
   children: ReactNode
 }
 
-const MyLayoutContent: FC<myLayoutContentProps> = memo<myLayoutContentProps>(({ color, children }) => {
+const MyLayoutContent: FC<myLayoutContent> = memo<myLayoutContent>(({ color, children }) => {
   return (
     <Layout.Content style={{ margin: '0 16px' }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
