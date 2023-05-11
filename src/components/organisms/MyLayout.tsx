@@ -2,7 +2,7 @@ import React, { type FC, type ReactNode, memo } from 'react'
 import { Layout, theme } from 'antd'
 import MyLayoutLeftSider from '../molecules/MyLayoutLeftSider'
 import MyLayoutHeader from '../molecules/MyLayoutHeader'
-import MyLayoutContent from "../molecules/MyLayoutContent";
+import MyLayoutContent from "../molecules/MyLayoutContentProps";
 // import MyLayoutFooter from "../molecules/MyLayoutFooter";
 
 export type myLayoutProps = {
