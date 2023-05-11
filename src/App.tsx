@@ -1,11 +1,10 @@
-import React, { type FC } from 'react'
+import React from 'react';
+import MyLayout from './components/organisms/MyLayout'
+import './app.less'
 
-const App: FC = () => {
-  console.log()
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>this is App</h1>
-    </div>
+    <MyLayout></MyLayout>
   )
 }
 
