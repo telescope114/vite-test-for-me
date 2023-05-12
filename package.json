@@ -1,7 +1,9 @@
 {
   "name": "vite-test-for-me",
+  "author": "Xiaoxiaoxuan114",
+  "description": "this is `react` with `vite`( not webpack ), it just learn for `react-router`(v6) and `recoil`(0.7)",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
