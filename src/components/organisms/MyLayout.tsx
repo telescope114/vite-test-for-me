@@ -6,7 +6,7 @@ import MyLayoutContent from "../molecules/MyLayoutContent";
 // import MyLayoutFooter from "../molecules/MyLayoutFooter";
 
 export type myLayoutProps = {
-  children: ReactNode
+  children?: ReactNode
 }
 
 const MyLayout: FC<myLayoutProps> = memo<myLayoutProps>(({ children }) => {
