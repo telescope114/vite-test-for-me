@@ -1,7 +1,7 @@
 import React, { type FC, memo } from 'react'
 import { Layout } from 'antd'
 
-export type myLayoutHeader = {
+export interface myLayoutHeader {
   color: string
 }
 

@@ -1,7 +1,7 @@
 import React, { type FC, type ReactNode, memo } from 'react'
 import { Breadcrumb, Layout } from 'antd'
 
-export type myLayoutContent = {
+export interface myLayoutContent {
   color: string
   children: ReactNode
 }

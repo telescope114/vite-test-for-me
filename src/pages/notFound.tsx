@@ -1,4 +1,4 @@
-import React, {type FC, memo} from 'react'
+import React, { type FC, memo } from 'react'
 
 const notFound: FC = memo(() => {
   return (
