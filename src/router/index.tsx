@@ -1,26 +1,16 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import React, { type ReactNode, type ElementType } from 'react'
-import Login from '../pages/login'
-import MyLayout from '../components/organisms/MyLayout'
+import { createBrowserRouter, Navigate, type RouteObject } from 'react-router-dom'
+import React from 'react'
+import withoutAuth from './withoutAuth'
+import withAuth from './withAuth'
 import NotFound from '../pages/notFound'
-import Aaa from '../pages/aaa'
 
-const nestComponents = (components: ElementType[]): ReactNode => {
-  if (components.length <= 0) {
-    return null
-  }
-  const [FirstComponent, ...rest] = components
-  return (
-    <FirstComponent>{ nestComponents(rest) }</FirstComponent>
-  )
-}
-
-const router = createBrowserRouter([
-  { path: '/login', element: (<Login />) },
-  { path: '/app/aaa', element: (nestComponents([MyLayout, Aaa])) },
-  { path: '/app', element: (<MyLayout/>) },
-  { path: '/', element: (<Navigate to="/app"/>) },
+const routes: RouteObject[] = [
+  ...withoutAuth,
+  ...withAuth(),
+  { path: '/', element: (<Navigate to="/app/aaa"/>) },
   { path: '*', element: (<NotFound />) }
-])
+]
+
+const router = createBrowserRouter(routes)
 
 export default router
