@@ -1,6 +1,6 @@
 import React, { type FC, memo } from 'react'
 
-const aaa: FC = memo(() => {
+const aaa: FC<null> = memo(() => {
   return (
     <>
       <h1>this is aaa</h1>
@@ -8,4 +8,5 @@ const aaa: FC = memo(() => {
   )
 })
 
+aaa.displayName = 'aaa'
 export default aaa

@@ -1,4 +1,4 @@
-import React, { ElementType, ReactNode } from 'react'
+import React, { type ElementType, type ReactNode } from 'react'
 
 /**
  * 这个是将数组里面的组件递归嵌套，最后返还一个根组件
