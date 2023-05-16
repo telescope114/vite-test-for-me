@@ -5,9 +5,9 @@ import React from 'react'
 /**
  * 无需身份认证的路由
  */
-const routes = (): RouteObject[] => {
+const routes = ({ authCallback }: any): RouteObject[] => {
   return [
-    { path: '/login', element: (<Login />) }
+    { path: '/login', element: (<Login authCallback={ authCallback } />) }
   ]
 }
 
