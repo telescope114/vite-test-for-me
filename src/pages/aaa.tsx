@@ -8,5 +8,4 @@ const aaa: FC<null> = memo(() => {
   )
 })
 
-aaa.displayName = 'aaa'
 export default aaa

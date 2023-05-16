@@ -5,7 +5,7 @@ import withAuth from './withAuth'
 import NotFound from '../pages/notFound'
 
 const routes: RouteObject[] = [
-  ...withoutAuth,
+  ...withoutAuth(),
   ...withAuth(),
   { path: '/', element: (<Navigate to="/app/aaa"/>) },
   { path: '*', element: (<NotFound />) }
