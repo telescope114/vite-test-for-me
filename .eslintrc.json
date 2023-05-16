@@ -26,6 +26,7 @@
     "rules": {
         "@typescript-eslint/key-spacing": "off",
         "react/prop-types": "off",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "@typescript-eslint/consistent-type-definitions": "off"
     }
 }
