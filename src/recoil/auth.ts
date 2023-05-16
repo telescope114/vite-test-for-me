@@ -17,6 +17,7 @@ export const authSelector = selector({
     return get(authAtom)
   },
   set: ({ set }, newValue) => {
+    console.log(newValue)
     window.localStorage.setItem('auth', JSON.stringify(newValue))
     set(authAtom, newValue)
   }
