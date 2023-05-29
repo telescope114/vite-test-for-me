@@ -1,25 +1,9 @@
-import { BrowserRouter, Routes, Route, Navigate, type RouteObject } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, type RouteObject } from 'react-router-dom'
 import React, { type FC, memo } from 'react'
-import withoutAuth from './withoutAuth'
-import withAuth from './withAuth'
-import NotFound from '../pages/notFound'
-import { authSelector, type authState } from '../recoil/auth'
-import { useRecoilState } from 'recoil'
-import { useNavigate } from 'react-router'
+import { authRoutes, noAuthroutes } from './router.dictionary'
 
 const Router: FC = memo(() => {
-  const [auth, setAuth] = useRecoilState(authSelector)
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const authCallback = (newVal: authState) => {
-    setAuth(() => newVal)
-    useNavigate()('/app/aaa')
-  }
-  const routes: RouteObject[] = [
-    ...withoutAuth(authCallback),
-    ...withAuth(auth),
-    { path: '/', element: (<Navigate to="/app/aaa"/>) },
-    { path: '*', element: (<NotFound />) }
-  ]
+  const routes: RouteObject[] = [...Object.values(authRoutes), ...Object.values(noAuthroutes)]
   return (
     <BrowserRouter>
       <Routes>
