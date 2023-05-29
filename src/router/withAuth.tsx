@@ -7,7 +7,6 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 
 const routes = (auth: authState | any): RouteObject[] => {
-  console.log(auth)
   if (typeof auth.token === 'string' && (auth.token !== '')) {
     console.log(1)
     return [
