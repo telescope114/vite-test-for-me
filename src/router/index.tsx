@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, type RouteObject } from 'react-router-dom'
 import React, { type FC, memo } from 'react'
-import { authRoutes, noAuthroutes } from './router.dictionary'
+import { authRoutes, noAuthRoutes } from './router.dictionary'
 
 const Router: FC = memo(() => {
-  const routes: RouteObject[] = [...Object.values(authRoutes), ...Object.values(noAuthroutes)]
+  const routes: RouteObject[] = [...Object.values(authRoutes), ...Object.values(noAuthRoutes)]
   return (
     <BrowserRouter>
       <Routes>
