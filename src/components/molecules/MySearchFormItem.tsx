@@ -1,12 +1,21 @@
-import React, { type FC, type ReactNode } from 'react'
-import { Col, Form, Input, Select } from 'antd'
-import { type props, type mySearchForm } from '../organisms/MySearchForm'
+import React, { type ReactNode } from 'react'
+import { type FormRule, Input, Select } from 'antd'
 
-export const FormItemDom = (config: mySearchForm): ReactNode => {
-  switch (config.type) {
+export type mySearchForm = {
+  name: string
+  label: string
+  type: string
+  span?: number
+  rules?: FormRule[]
+  option?: Array<{ value: string, label: string }>
+}
+
+export const SearchFormItem = ({ type, option, label, span, rules, name }: mySearchForm): JSX.Element => {
+  console.log(label, span, rules, name)
+  switch (type) {
     case 'selectOne': return (
       <Select>
-        { config.option?.map((item, index) => (<Select.Option key={index} value={item.value}>{item.label}</Select.Option>)) }
+        { option?.map((item, index) => (<Select.Option key={index} value={item.value}>{item.label}</Select.Option>)) }
       </Select>
     )
     default: return (
@@ -15,19 +24,18 @@ export const FormItemDom = (config: mySearchForm): ReactNode => {
   }
 }
 
-const MySearchFormItem: FC<props> = ({ formConfig }) => {
-  const FormItem = Form.Item
-  return formConfig.map((item, index) => (
-    <Col span={(item.span != null) ? item.span : 8} key={index}>
-      <FormItem
-        name={item.name}
-        label={item.label}
-        rules={item.rules}
-        >
-        <FormItemDom {...item} />
-      </FormItem>
-    </Col>
-  ))
+const MySearchFormItem = ({ type, option, label, span, rules, name }: mySearchForm): ReactNode => {
+  console.log(label, span, rules, name)
+  switch (type) {
+    case 'selectOne': return (
+      <Select>
+        { option?.map((item, index) => (<Select.Option key={index} value={item.value}>{item.label}</Select.Option>)) }
+      </Select>
+    )
+    default: return (
+      <Input placeholder="placeholder" />
+    )
+  }
 }
 
 export default MySearchFormItem

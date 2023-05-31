@@ -1,6 +1,6 @@
 import React, { type FC, type CSSProperties } from 'react'
 import { theme } from 'antd'
-import MySearchForm, { type mySearchForm } from '../../components/organisms/MySearchForm'
+import MySearchForm, { type props as mySearchForm } from '../../components/organisms/MySearchForm'
 
 const aaa: FC = () => {
   const { token } = theme.useToken()
@@ -12,7 +12,7 @@ const aaa: FC = () => {
     borderRadius: token.borderRadiusLG,
     marginTop: 16
   }
-  const formConfig: mySearchForm[] = [
+  const formConfig: mySearchForm = [
     { name: 'test1', label: '测试1', type: 'input' },
     { name: 'test2', label: '测试2', type: 'input' },
     { name: 'test3', label: '测试3', type: 'selectOne', option: [{ value: 'a-a', label: 'a1' }, { value: 'a-b', label: 'a2' }] }

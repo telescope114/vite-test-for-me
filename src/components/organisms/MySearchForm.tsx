@@ -1,16 +1,7 @@
 import React, { type FC, useState, memo } from 'react'
-import { Button, Form, Row, Space, theme, type FormRule, Col } from 'antd'
+import { Button, Form, Row, Space, theme, Col } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
-import { FormItemDom } from '../molecules/MySearchFormItem'
-
-export type mySearchForm = {
-  name: string
-  label: string
-  type: string
-  span?: number
-  rules?: FormRule[]
-  option?: Array<{ value: string, label: string }>
-}
+import SearchFormItem, { type mySearchForm } from '../molecules/MySearchFormItem'
 
 export type props = {
   formConfig: mySearchForm[]
@@ -36,17 +27,20 @@ const MySearchForm: FC<props> = memo<props>((mySearchFormConfig) => {
     <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>
         {
-          mySearchFormConfig.formConfig.map((item, index) => (
-            <Col span={(item.span != null) ? item.span : 8} key={index}>
-              <Form.Item
-                name={item.name}
-                label={item.label}
-                rules={item.rules}
-              >
-                <FormItemDom {...item} />
-              </Form.Item>
-            </Col>
-          ))
+          mySearchFormConfig.formConfig.map((item, index) => {
+            console.log(item)
+            return (
+              <Col span={(item.span != null) ? item.span : 8} key={index}>
+                <Form.Item
+                  name={item.name}
+                  label={item.label}
+                  rules={item.rules}
+                >
+                  { SearchFormItem(item) }
+                </Form.Item>
+              </Col>
+            )
+          })
         }
       </Row>
       <div style={{ textAlign: 'right' }}>
