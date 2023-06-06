@@ -1,8 +1,9 @@
 import React, { type FC, type CSSProperties, useState, useEffect } from 'react'
-import { theme, Tag, Button } from 'antd'
+import { theme, Tag } from 'antd'
 import { type ColumnsType } from 'antd/es/table'
-import MySearchForm, { type props as mySearchForm } from '../../components/organisms/MySearchForm'
-import MyTable, { type dataType } from '../../components/organisms/MyTable'
+import MySearchForm, { type props as mySearchForm } from '../../../components/organisms/MySearchForm'
+import MyTable, { type dataType } from '../../../components/organisms/MyTable'
+import DetailButton from './components/AaaDetailButton'
 
 const aaa: FC = () => {
   const { token } = theme.useToken()
@@ -33,7 +34,6 @@ const aaa: FC = () => {
         tags: ['nice', 'developer']
       })
     }
-    console.log(data)
     setTableData(data)
   }, [])
 
@@ -77,9 +77,7 @@ const aaa: FC = () => {
     {
       title: 'action',
       key: 'action',
-      render: (_, record) => (<Button type="link">
-        详情
-      </Button>)
+      render: (_, record) => (<DetailButton item={record} />)
     }
   ]
 
