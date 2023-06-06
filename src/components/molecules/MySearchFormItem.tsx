@@ -10,8 +10,7 @@ export type mySearchForm = {
   option?: Array<{ value: string, label: string }>
 }
 
-export const SearchFormItem = ({ type, option, label, span, rules, name }: mySearchForm): JSX.Element => {
-  console.log(label, span, rules, name)
+export const SearchFormItem = ({ type, option }: mySearchForm): JSX.Element => {
   switch (type) {
     case 'selectOne': return (
       <Select>
@@ -24,8 +23,7 @@ export const SearchFormItem = ({ type, option, label, span, rules, name }: mySea
   }
 }
 
-const MySearchFormItem = ({ type, option, label, span, rules, name }: mySearchForm): ReactNode => {
-  console.log(label, span, rules, name)
+const MySearchFormItem = ({ type, option }: mySearchForm): ReactNode => {
   switch (type) {
     case 'selectOne': return (
       <Select>

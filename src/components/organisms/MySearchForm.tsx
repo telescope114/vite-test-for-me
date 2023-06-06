@@ -28,7 +28,6 @@ const MySearchForm: FC<props> = memo<props>((mySearchFormConfig) => {
       <Row gutter={24}>
         {
           mySearchFormConfig.formConfig.map((item, index) => {
-            console.log(item)
             return (
               <Col span={(item.span != null) ? item.span : 8} key={index}>
                 <Form.Item
