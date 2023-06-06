@@ -18,6 +18,8 @@ export type props = {
   footer?: ReactNode
   // 插槽
   children?: ReactNode
+  // 宽度
+  width?: string | number
 }
 
 const MyModal: FC<props> = (props) => {
@@ -39,6 +41,7 @@ const MyModal: FC<props> = (props) => {
     open={props.open}
     onCancel={props.cancel}
     footer={Footer()}
+    width={props.width ? props.width : 520}
   >
     { props.children }
   </Modal>
