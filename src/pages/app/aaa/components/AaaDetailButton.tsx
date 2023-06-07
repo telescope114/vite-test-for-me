@@ -16,11 +16,11 @@ const AaaDetailButton: FC<props> = ({ item }) => {
     { label: 'Automatic Renewal', value: 'automaticRenewal', span: 1 },
     { label: 'Order time', value: 'orderTime', span: 1 },
     { label: 'Usage Time', value: 'usageTime', span: 2 },
-    { label: 'Status', value: 'status', span: 3, children: (text, record) => (<Badge status="processing" text={text as string} />) },
+    { label: 'Status', value: 'status', span: 3, children: (text) => (<Badge status="processing" text={text as string} />) },
     { label: 'Negotiated Amount', value: 'negotiatedAmount', span: 1 },
     { label: 'Discount', value: 'discount', span: 1 },
     { label: 'Official Receipts', value: 'officialReceipts', span: 1 },
-    { label: 'Config Info', value: 'configInfo', span: 1, children: (text, record) => (<>{ text as ReactNode }</>) }
+    { label: 'Config Info', value: 'configInfo', span: 1, children: (text) => (<>{ text as ReactNode }</>) }
   ]
   const data = {
     product: 'Cloud Database',
@@ -58,7 +58,7 @@ const AaaDetailButton: FC<props> = ({ item }) => {
 
     if (visible) {
       return <MyModal title="详情欸" open={visible} cancel={cancel} ok={ok} width={1080}>
-        <MyDescription config={config} data={data} column={3}/>
+        <MyDescription config={config} data={data} column={3} width={'1080px'}/>
       </MyModal>
     } else {
       return <></>

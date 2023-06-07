@@ -10,13 +10,15 @@ export type props = {
   column?: number
   // 配置信息
   config: config[]
+  width?: number | string
   // 展示数据
-  data: any
+  data: Record<string, any>
 }
 
-const MyDescription: FC<props> = ({ title, column = 3, config, data }) => {
+const MyDescription: FC<props> = ({ title, column = 3, config, data, width }) => {
+  const descriptionWidth = (typeof width === 'number') ? (width.toString() + 'px') : (width || '100%')
   return (
-    <Descriptions title="User Info" bordered>
+    <Descriptions title={title} bordered contentStyle={{ width: descriptionWidth }} column={column}>
       { config.map(({ label, span = 1, value, children }, index) => {
         return (
           <Descriptions.Item label={label} key={index} span={span}>{ children ? children(data[value], data) : data[value] }</Descriptions.Item>
